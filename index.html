@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VH MEN Owner</title>
+  <link rel="stylesheet" href="owner.css">
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="profit-core.js"></script>
+  <script defer src="owner.js"></script>
+</head>
+<body>
+  <header class="top"><div class="brand"><span>VH</span><div><strong>VH MEN</strong><small>OWNER WORKSPACE</small></div></div><button id="sign-out" type="button" hidden>Sign out</button></header>
+  <main>
+    <section id="login" class="surface login">
+      <p class="eyebrow">OWNER ACCESS</p>
+      <h1>Sign in to VH MEN</h1>
+      <p>Review gross profit by Vrich order after the items pass PokPok scan verification.</p>
+      <button id="sign-in" type="button" class="primary" disabled>Sign in with Google</button>
+      <p id="login-status" role="status">Connecting to Firebase…</p>
+    </section>
+    <section id="workspace" hidden>
+      <div class="heading"><div><p class="eyebrow">ORDERS · CAMBODIA TIME</p><h1>Gross profit by order</h1></div><button type="button" id="export" disabled>Download JSON</button></div>
+      <form id="filters"><label for="date">Vrich order date</label><input type="date" id="date" required><button class="primary" type="submit">Load orders</button></form>
+      <dl class="totals"><div><dt>Orders</dt><dd id="order-count">—</dd></div><div><dt>With gross profit</dt><dd id="profit-count">—</dd></div><div><dt>Gross profit on verified orders</dt><dd id="gross-total">—</dd></div></dl>
+      <p id="status" role="status"></p>
+      <div class="surface table-wrap"><table><thead><tr><th>Vrich order</th><th>Net merchandise</th><th>Landed cost</th><th>Gross profit</th><th>Verification</th></tr></thead><tbody id="orders"></tbody></table></div>
+      <p class="note">Gross profit covers merchandise. Delivery, payment collection, and bank matching are handled separately.</p>
+    </section>
+  </main>
+  <dialog id="detail"><form method="dialog"><button>Close</button></form><h2 id="detail-title"></h2><div id="detail-body"></div></dialog>
+</body>
+</html>
